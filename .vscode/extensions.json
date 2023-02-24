@@ -1,0 +1,15 @@
+{
+    "recommendations": [
+        "bastienboutonnet.vscode-dbt",
+        "innoverio.vscode-dbt-power-user",
+        "RandomFractalsInc.duckdb-sql-tools",
+        "samuelcolvin.jinjahtml",
+        "visualstudioexptteam.vscodeintellicode",
+        "editorconfig.editorconfig",
+        "redhat.vscode-yaml",
+        "Evidence.evidence-vscode",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "GitHub.copilot",
+    ]
+}

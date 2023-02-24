@@ -1,0 +1,24 @@
+config:
+  send_anonymous_usage_stats: false
+
+project:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: reports/dbt.duckdb
+      #optional fields
+      schema: main
+    snow:
+      type: snowflake
+      account: '{{ env_var("SNOWFLAKE_ACCOUNT") }}'
+      
+      user: '{{ env_var("DBT_ENV_SECRET_USER") }}'
+      password: '{{ env_var("DBT_ENV_SECRET_PASSWORD") }}'
+
+      role: '{{ env_var("DBT_ENV_ROLE") }}'
+      database: '{{ env_var("DBT_ENV_DATABASE") }}'
+      warehouse: '{{ env_var("DBT_ENV_WAREHOUSE") }}'
+      schema: '{{ env_var("DBT_ENV_SCHEMA") }}'
+      threads: 8
+      query_tag: dbt_dev

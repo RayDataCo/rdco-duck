@@ -1,0 +1,8 @@
+dbt-snowflake
+dbt-duckdb>=1.4.0
+dbt-osmosis
+duckdb
+shandy-sqlfmt[jinjafmt]
+factory-boy
+pandas
+pydantic

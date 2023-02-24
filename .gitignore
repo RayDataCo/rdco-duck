@@ -1,0 +1,5 @@
+logs
+dbt_packages
+reports/node_modules
+.env
+*.duckdb

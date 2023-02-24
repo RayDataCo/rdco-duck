@@ -1,0 +1,25 @@
+{
+	"name": "dbt_workbench",
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {},
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/node:1": {},
+		"ghcr.io/devcontainers/features/python:1": {},
+		"ghcr.io/EliiseS/devcontainer-features/bash-profile:1": {
+			"command": "dbtsim() { while true; do dbt build -s ${1:-path:models+}; sleep 2; done }",
+			"file": "/home/vscode/.bashrc"
+		},
+		"ghcr.io/EliiseS/devcontainer-features/bash-profile:1": {
+			"command": "dbtsim() { while true; do dbt build -s ${1:-path:models+}; sleep 2; done }",
+			"file": "/home/vscode/.zshrc"
+		}
+	},
+	// "forwardPorts": [],
+	"runArgs": [
+		"--env-file",
+		".env"
+	],
+	"postCreateCommand": "pip3 install -r requirements.txt",
+	// "remoteUser": "root"
+}

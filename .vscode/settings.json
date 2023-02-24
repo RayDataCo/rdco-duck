@@ -1,0 +1,27 @@
+{
+    "python.languageServer": "Pylance",
+    "files.associations": {
+        "*.sql": "jinja-sql"
+    },
+    "[jinja-sql]": {
+        "editor.defaultFormatter": "innoverio.vscode-dbt-power-user",
+        "editor.formatOnSave": true
+    },
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "sqltools.useNodeRuntime": true,
+    "sqltools.disableNodeDetectNotifications": true,
+    "sqltools.autoOpenSessionFiles": false,
+    "sqltools.results.limit": 10000,
+    "sqltools.results.location": "current",
+    "sqltools.defaultExportType": "csv",
+    "sqltools.results.reuseTabs": "connection",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "DuckDB",
+            "database": "reports/dbt.duckdb",
+            "name": "test"
+        }
+    ],
+    "dbt.queryLimit": 500,
+}
