@@ -1,0 +1,1 @@
+{"gitRepo":"https://github.com/RayDataCo/rdco-duck.git","database":"duckdb","credentials":{"filename":"dbt.duckdb","gitignoreDuckdb":true}}
