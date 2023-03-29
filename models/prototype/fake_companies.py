@@ -17,9 +17,7 @@ def model(dbt, session):
 
     print(data)
 
-    df = pd.DataFrame(data)
-
-    return df
+    return pd.DataFrame(data)
 
 
 # What do I want to know about a dataset?

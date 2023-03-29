@@ -13,7 +13,7 @@ def model(dbt, session):
     dbt.config(
         materialized="incremental",
         packages=["pandas", "pydantic", "factory_boy"],
-        unique_key=["company_id", "user_id"],
+        unique_key=["order_id"],
     )
 
     # 2 - Set the mold
@@ -39,7 +39,7 @@ def model(dbt, session):
             "random_element", elements=OrderedDict([("A", 0.5), ("B", 0.3), ("C", 0.2)])
         ),
         quantity=factory.Faker("random_int", min=1, max=10),
-        price=factory.Faker("random_decimal", min=1, max=100, right_digits=2),
+        price=factory.Faker("pydecimal", min_value=1, max_value=100, right_digits=3),
         total=factory.LazyAttribute(lambda o: o.quantity * o.price),
     )
 

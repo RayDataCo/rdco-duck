@@ -1,10 +1,9 @@
 # MRR Dashboard
-
 ```orders_by_month
 select
   date_month,
   change_category,
-  sum(mrr) as mrr,
+  sum(mrr) as mrr_usd,
   sum(is_active::INT) as customer_count
 from main.mrr_mrr
 group by 1, 2
@@ -13,7 +12,7 @@ group by 1, 2
 ```total_mrr_by_month
 select 
   date_month,
-  sum(mrr) as mrr,
+  sum(mrr_usd) as mrr_usd,
   sum(customer_count) as customer_count
 from ${orders_by_month}
 group by 1
@@ -23,24 +22,24 @@ group by 1
 with prior_month as (
   select
     date_month + interval '1 month' as date_month,
-    mrr as prior_mrr,
+    mrr_usd as prior_mrr_usd,
     customer_count as prior_customer_count
   from ${total_mrr_by_month}
   where date_month = date_trunc('month', current_date - interval '1 month')
 ), current_month as (
   select
     date_month,
-    mrr,
+    mrr_usd,
     customer_count
   from ${total_mrr_by_month}
   where date_month = date_trunc('month', current_date)
 )
 select
   current_month.date_month,
-  current_month.mrr,
-  prior_month.prior_mrr,
-  current_month.mrr - prior_month.prior_mrr as mrr_change,
-  (current_month.mrr - prior_month.prior_mrr) / prior_month.prior_mrr as mrr_change_pct,
+  current_month.mrr_usd,
+  prior_month.prior_mrr_usd,
+  current_month.mrr_usd - prior_month.prior_mrr_usd as mrr_change_usd,
+  (current_month.mrr_usd - prior_month.prior_mrr_usd) / prior_month.prior_mrr_usd as mrr_change_pct,
   current_month.customer_count,
   prior_month.prior_customer_count,
   current_month.customer_count - prior_month.prior_customer_count as customer_count_change,

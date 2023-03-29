@@ -1,8 +1,9 @@
 dbt-snowflake
-dbt-duckdb>=1.4.0
+dbt-duckdb
 dbt-osmosis
 duckdb
 shandy-sqlfmt[jinjafmt]
 factory-boy
 pandas
+pyarrow
 pydantic
