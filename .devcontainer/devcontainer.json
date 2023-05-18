@@ -16,11 +16,20 @@
 			"file": "/home/vscode/.zshrc"
 		}
 	},
+	"secrets": {
+		"DBT_ENV_SECRET_USER": {},
+		"DBT_ENV_SECRET_PASSWORD": {},
+		"DBT_ENV_ROLE": {},
+		"DBT_ENV_DATABASE": {},
+		"DBT_ENV_WAREHOUSE": {},
+		"DBT_ENV_SCHEMA": {},
+		"SNOWFLAKE_ACCOUNT": {}
+	},
 	// "forwardPorts": [],
-	"runArgs": [
-		"--env-file",
-		".env"
-	],
+	// "runArgs": [
+	// 	"--env-file",
+	// 	".env"
+	// ],
 	"postCreateCommand": "pip3 install -r requirements.txt",
 	// "remoteUser": "root"
 }

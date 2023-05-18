@@ -52,8 +52,13 @@ left join prior_month
 <LineChart 
     data={total_mrr_by_month}  
     x='date_month'
-    y='mrr_usd'
+    y={["mrr_usd", "customer_count"]}
 />
+
+<Chart data={total_mrr_by_month}>
+    <Area y=mrr_usd line=true/>
+    <Line y=customer_count/>
+</Chart>
 
 <BigValue 
   data={current_metrics} 
